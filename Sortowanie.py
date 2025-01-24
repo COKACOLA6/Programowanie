@@ -36,7 +36,8 @@ def wypisanie_tablic(tab,tab2):
 
 
 def main():
-    losowanie_tablicy()
-    sortowanie()
-    wypisanie_tablic()
-    porownanie()
+    los = losowanie_tablicy(n = 20,minnum = 0,maxnum = 99)
+    posortowana = sortowanie(tab = los)
+    wypisanie_tablic(tab = los,tab2 = posortowana)
+    Czy_rowne = porownanie(tab = los,tab2 = posortowana)
+    print(Czy_rowne)
