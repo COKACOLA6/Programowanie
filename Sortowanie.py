@@ -33,4 +33,7 @@ def wypisanie_tablic():
 
 
 def main():
-    pass
+    losowanie_tablicy()
+    sortowanie()
+    wypisanie_tablic()
+    porownanie()
