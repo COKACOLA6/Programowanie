@@ -16,19 +16,22 @@ import random
 random.seed(1)
 
 
-def sortowanie():
-    pass
+def sortowanie(tab):
+    return tab
 
 
-def losowanie_tablicy():
-    pass
+def losowanie_tablicy(n,minnum,maxnum):
+    #n- liczba elementow
+    tab = []
+    return tab
 
 
-def porownanie():
-    pass
+def porownanie(tab,tab2):
+    Czyrowne = False
+    return Czyrowne
 
 
-def wypisanie_tablic():
+def wypisanie_tablic(tab,tab2):
     pass
 
 
