@@ -16,28 +16,54 @@ import random
 random.seed(1)
 
 
-def sortowanie(tab):
+def babelkowe(tab):
+    n = len(tab) 
+    for i in range(n):
+        for j in range(n - 1):
+            if tab[j] < tab[j+1]:
+                continue
+            else:
+                temp = tab[j+1]
+                tab[j+1] = tab[j]
+                tab[j] = temp
     return tab
+
+
+
+def sortowanie(tab):
+    return sorted(tab)
 
 
 def losowanie_tablicy(n,minnum,maxnum):
     #n- liczba elementow
+    rozpietosc = maxnum - minnum
     tab = []
+    i = 0
+    while i < n:
+        tab.append(round(random.random()*rozpietosc)+minnum)
+        i+=1
     return tab
 
 
 def porownanie(tab,tab2):
-    Czyrowne = False
+    if tab == tab2:
+        Czyrowne = True
+    else:
+        Czyrowne = False
     return Czyrowne
 
 
 def wypisanie_tablic(tab,tab2):
-    pass
+    print("tablica1:",tab)
+    print("tablica2:",tab2)
 
 
 def main():
-    los = losowanie_tablicy(n = 20,minnum = 0,maxnum = 99)
+    los = losowanie_tablicy(n = 20,minnum = 35,maxnum = 70)
     posortowana = sortowanie(tab = los)
     wypisanie_tablic(tab = los,tab2 = posortowana)
-    Czy_rowne = porownanie(tab = los,tab2 = posortowana)
+    #Sprawdzamy czy wyjściowa tablica jest posortowana
+    Czy_rowne = porownanie(tab = sorted(los),tab2 = posortowana)
+    print("Sprawdzamy czy nasza funkcja posortowała w prawidłowy sposób")
     print(Czy_rowne)
+main()
