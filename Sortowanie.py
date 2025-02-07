@@ -13,10 +13,12 @@ funkcja main - w któej będą wywoływane wszystkie poprzednie funkcje
 
 import math
 import random
+import datatime
 random.seed(1)
 
 
 def babelkowe(tab):
+    starttime = datatime.datatime.now()
     n = len(tab) 
     for i in range(n):
         for j in range(n - 1):
@@ -26,6 +28,9 @@ def babelkowe(tab):
                 temp = tab[j+1]
                 tab[j+1] = tab[j]
                 tab[j] = temp
+    endtime = datatime.datatime.now()
+    print("Start:",starttime)
+    print("Czas wykonania:",endtime - starttime)
     return tab
 
 
