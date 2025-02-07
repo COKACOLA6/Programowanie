@@ -1,12 +1,9 @@
 def NWD (a,b):
     while a!=b:
-        if a > 0 and b > 0:
-            if a>b:
-                a= a-b
-            else:
-                b = b-a
+        if a>b:
+            a= a-b
         else:
-            return None
+            b = b-a
     return a
     
 
