@@ -13,12 +13,12 @@ funkcja main - w któej będą wywoływane wszystkie poprzednie funkcje
 
 import math
 import random
-import datatime
+import time
 random.seed(1)
 
 
 def babelkowe(tab):
-    starttime = datatime.datatime.now()
+    starttime = time.time()
     n = len(tab) 
     for i in range(n):
         for j in range(n - 1):
@@ -28,15 +28,14 @@ def babelkowe(tab):
                 temp = tab[j+1]
                 tab[j+1] = tab[j]
                 tab[j] = temp
-    endtime = datatime.datatime.now()
-    print("Start:",starttime)
+    endtime = time.time()
     print("Czas wykonania:",endtime - starttime)
     return tab
 
 
 
 def sortowanie(tab):
-    return sorted(tab)
+    return babelkowe(tab)
 
 
 def losowanie_tablicy(n,minnum,maxnum):
@@ -64,7 +63,7 @@ def wypisanie_tablic(tab,tab2):
 
 
 def main():
-    los = losowanie_tablicy(n = 20,minnum = 35,maxnum = 70)
+    los = losowanie_tablicy(n = 2000,minnum = 35,maxnum = 70)
     posortowana = sortowanie(tab = los)
     wypisanie_tablic(tab = los,tab2 = posortowana)
     #Sprawdzamy czy wyjściowa tablica jest posortowana
