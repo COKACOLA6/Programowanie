@@ -10,14 +10,12 @@ funkcja - wypisanie dwóch tablic jedna pod drugą
  
 funkcja main - w któej będą wywoływane wszystkie poprzednie funkcje
 """
-
 import math
 import random
 import time
 random.seed(1)
 
-
-def babelkowe(tab):
+def babelkowestare(tab):
     starttime = time.time()
     n = len(tab) 
     for i in range(n):
@@ -32,10 +30,27 @@ def babelkowe(tab):
     print("Czas wykonania:",endtime - starttime)
     return tab
 
+def babelkowe(tab):
+    korekta = 0
+    starttime = time.time()
+    n = len(tab) 
+    for i in range(n):
+        for j in range(n - 1 - korekta):
+            if tab[j] < tab[j+1]:
+                continue
+            else:
+                temp = tab[j+1]
+                tab[j+1] = tab[j]
+                tab[j] = temp
+        korekta+=1
+    endtime = time.time()
+    print("Czas wykonania:",endtime - starttime)
+    return tab
 
 
 def sortowanie(tab):
-    return babelkowe(tab)
+    #return babelkowe(tab)
+    return babelkowestare(tab)
 
 
 def losowanie_tablicy(n,minnum,maxnum):
@@ -63,9 +78,9 @@ def wypisanie_tablic(tab,tab2):
 
 
 def main():
-    los = losowanie_tablicy(n = 2000,minnum = 35,maxnum = 70)
+    los = losowanie_tablicy(n = 20000,minnum = -1000,maxnum = 100000)
     posortowana = sortowanie(tab = los)
-    wypisanie_tablic(tab = los,tab2 = posortowana)
+    #wypisanie_tablic(tab = los,tab2 = posortowana)
     #Sprawdzamy czy wyjściowa tablica jest posortowana
     Czy_rowne = porownanie(tab = sorted(los),tab2 = posortowana)
     print("Sprawdzamy czy nasza funkcja posortowała w prawidłowy sposób")
