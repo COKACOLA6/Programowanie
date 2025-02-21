@@ -31,26 +31,24 @@ def babelkowestare(tab):
     return tab
 
 def babelkowe(tab):
-    korekta = 0
     starttime = time.time()
     n = len(tab) 
     for i in range(n):
-        for j in range(n - 1 - korekta):
+        for j in range(n - 1 - i):
             if tab[j] < tab[j+1]:
                 continue
             else:
                 temp = tab[j+1]
                 tab[j+1] = tab[j]
                 tab[j] = temp
-        korekta+=1
     endtime = time.time()
     print("Czas wykonania:",endtime - starttime)
     return tab
 
 
 def sortowanie(tab):
-    #return babelkowe(tab)
-    return babelkowestare(tab)
+    return babelkowe(tab)
+    #return babelkowestare(tab)
 
 
 def losowanie_tablicy(n,minnum,maxnum):
